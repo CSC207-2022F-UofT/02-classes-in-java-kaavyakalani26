@@ -78,7 +78,14 @@ public class Silly implements Comparable<Silly>{
      *       Afterwards, set this.name to the concatenation of both
      *       strings (e.g. this.name = [first string] + [second string]).
      *       Make sure you document this method!
+     *
+     * Concatenates the provided strings.
+     * This constructor takes in two strings as arguments and concatenates them
+     *
+     * @param str1 a string representing the first word
+     * @param str2 a string representing the second word
      */
+    public Silly(String str1, String str2){this.name = str1 + str2;}
 
 
 
@@ -116,7 +123,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {0, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -134,6 +141,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public String toString(){
         // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -161,6 +169,7 @@ public class Silly implements Comparable<Silly>{
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
+        return this.name.equals(((Silly) o).name) && ((Silly) o).name.equals(this.name);
     }
 
     /**
@@ -194,6 +203,15 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
+        int a = this.name.length();
+        int b = other.name.length();
+        if (a > b){
+            return 1;
+        } else if (a < b){
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     /*
